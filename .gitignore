@@ -1,0 +1,19 @@
+# Build outputs
+/dist/
+
+# Installer staging artifacts
+**/_staging_*/
+
+# Code signing material (never commit)
+*.pfx
+*.p12
+*.snk
+*.pvk
+*.cer
+*.crt
+*.key
+*.pem
+
+# Certificate/password export artifacts
+*.pwd
+*.secret
