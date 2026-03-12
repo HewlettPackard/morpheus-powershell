@@ -317,40 +317,6 @@ This regenerates:
 - `Morpheus.OpenApi.psm1`
 - `Morpheus.OpenApi.psd1`
 
-## Create executable installer (EXE)
-
-Build a versioned Windows installer EXE (version taken from `Morpheus.OpenApi.psd1` `ModuleVersion`, which is generated from the OpenAPI version):
-
-```powershell
-Set-Location "<repo>\morpheus-powershell\scripts"
-./New-MorpheusInstallerExe.ps1 -Force
-```
-
-Optional: sign the EXE during build.
-
-Using a certificate already in the cert store:
-
-```powershell
-./New-MorpheusInstallerExe.ps1 -Force -CertificateThumbprint '<thumbprint>' -CertificateStore 'Cert:\CurrentUser\My'
-```
-
-Using a PFX file:
-
-```powershell
-$pfxPassword = Read-Host 'PFX Password' -AsSecureString
-./New-MorpheusInstallerExe.ps1 -Force -PfxPath 'C:\certs\codesign.pfx' -PfxPassword $pfxPassword
-```
-
-Timestamping is enabled by default (`http://timestamp.digicert.com`). Use `-SkipTimestamp` to disable.
-
-Output example:
-
-- `<repo>\morpheus-powershell\dist\Morpheus.OpenApi-8.0.13-Setup.exe`
-
-Run the EXE to install the module for the current user into:
-
-- `%USERPROFILE%\Documents\PowerShell\Modules\Morpheus.OpenApi\8.0.13`
-
 ## Reload module without restarting PowerShell
 
 ```powershell
